@@ -155,15 +155,14 @@ body::before {
   color: var(--soft);
   font-size: .72rem;
   letter-spacing: .18em;
-  transform: translateY(-28px);
+  transform: translateY(-30px);
   opacity: .82;
 }
 
-/* MARATHON-INSPIRED YOU TEXT */
 h1 {
   position: relative;
   z-index: 2;
-  margin: -34px 0 28px;
+  margin: -38px 0 48px;
   font-family: Impact, "Teko", "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
   font-size: clamp(7rem, 16vw, 15rem);
   line-height: .74;
@@ -195,7 +194,6 @@ h1 span::before {
   opacity: .72;
 }
 
-/* Removed the underline so it does not enter the YouTube button */
 h1 span::after {
   content: none;
 }
@@ -204,7 +202,7 @@ h1 span::after {
   display: grid;
   gap: 10px;
   max-width: 430px;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .platforms a {
@@ -300,7 +298,6 @@ h1 span::after {
   filter: blur(2px) contrast(1.85) saturate(.5) brightness(.5);
 }
 
-/* Corrupted pixel/grid layer */
 .cover-reveal::before {
   content: "";
   position: absolute;
@@ -327,11 +324,6 @@ h1 span::after {
       transparent 26% 100%
     );
   mix-blend-mode: overlay;
-}
-
-/* Extra horizontal glitch scratches */
-.cover-reveal .base::after {
-  content: "";
 }
 
 .cover.clear {
@@ -436,8 +428,14 @@ h1 span::after {
 }
 
 @media (max-width: 880px) {
+  .site-shell {
+    width: min(100% - 24px, 1120px);
+    padding-top: 12px;
+  }
+
   .topbar {
-    grid-template-columns: 104px 1fr 70px;
+    grid-template-columns: 120px 1fr 76px;
+    min-height: 64px;
   }
 
   .hide-mobile {
@@ -446,20 +444,42 @@ h1 span::after {
 
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 28px;
-  }
-
-  .cover-panel {
-    order: 1;
+    gap: 34px;
+    padding-top: 34px;
+    align-items: start;
   }
 
   .hero-copy {
-    order: 2;
+    order: 1;
     transform: translateY(0);
+    padding: 12px 0 18px 22px;
+  }
+
+  .cover-panel {
+    order: 2;
+  }
+
+  .eyebrow {
+    transform: translateY(-22px);
+    margin-bottom: 4px;
+  }
+
+  h1 {
+    font-size: clamp(8.2rem, 38vw, 14rem);
+    margin: -18px 0 54px;
+  }
+
+  .platforms {
+    margin-top: 28px;
+    max-width: 100%;
   }
 
   .data-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+
+  .data-grid article {
+    min-height: 112px;
   }
 }
 
@@ -470,8 +490,8 @@ h1 span::after {
   }
 
   .topbar {
-    grid-template-columns: 86px 1fr 58px;
-    min-height: 54px;
+    grid-template-columns: 92px 1fr 58px;
+    min-height: 58px;
   }
 
   .brand-mark,
@@ -485,29 +505,42 @@ h1 span::after {
   }
 
   .status-strip {
-    font-size: .58rem;
+    font-size: .55rem;
+    gap: 10px;
+  }
+
+  .hero {
+    gap: 30px;
+    padding-top: 30px;
   }
 
   .hero-copy {
-    padding-left: 16px;
+    padding-left: 18px;
   }
 
   .eyebrow {
     transform: translateY(-18px);
-    margin-bottom: 16px;
+    margin-bottom: 0;
+    font-size: .64rem;
+    letter-spacing: .16em;
   }
 
   h1 {
-    font-size: clamp(7rem, 34vw, 11rem);
-    margin: -12px 0 30px;
+    font-size: clamp(8rem, 44vw, 12rem);
+    margin: -14px 0 58px;
+  }
+
+  .platforms {
+    margin-top: 34px;
+  }
+
+  .platforms a {
+    min-height: 58px;
+    font-size: .92rem;
   }
 
   .panel-readout {
     font-size: .54rem;
-  }
-
-  .data-grid {
-    grid-template-columns: 1fr;
   }
 
   .cover.clear {
