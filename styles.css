@@ -4,8 +4,8 @@
   --soft: #c9c9c1;
   --muted: #85857d;
   --line: rgba(244, 244, 240, 0.16);
-  --line-strong: rgba(244, 244, 240, 0.42);
-  --panel: rgba(10, 10, 10, 0.86);
+  --line-strong: rgba(244, 244, 240, 0.46);
+  --panel: rgba(10, 10, 10, 0.88);
   --mx: 50%;
   --my: 50%;
 }
@@ -101,6 +101,19 @@ body::before {
   border-radius: 50%;
   background: var(--fg);
   box-shadow: 0 0 16px rgba(255,255,255,.75);
+  animation: signalBlink 1.35s steps(2, end) infinite;
+}
+
+@keyframes signalBlink {
+  0%, 45% {
+    opacity: 1;
+    box-shadow: 0 0 16px rgba(255,255,255,.75);
+  }
+
+  46%, 100% {
+    opacity: .18;
+    box-shadow: none;
+  }
 }
 
 .sigil {
@@ -139,15 +152,56 @@ body::before {
 }
 
 h1 {
-  margin: 0 0 38px;
-  font-size: clamp(6rem, 16vw, 14rem);
-  line-height: .78;
-  letter-spacing: -.07em;
+  position: relative;
+  margin: 0 0 42px;
+  font-size: clamp(6.4rem, 17vw, 15.5rem);
+  line-height: .7;
+  letter-spacing: -.105em;
   text-transform: uppercase;
-  transform: scaleY(1.16);
+  transform: scaleY(1.3) skewX(-4deg);
+  font-weight: 950;
+  color: var(--fg);
   text-shadow:
-    3px 0 0 rgba(255,255,255,.16),
-    -2px 0 0 rgba(255,255,255,.08);
+    5px 0 0 rgba(255,255,255,.13),
+    -4px 0 0 rgba(255,255,255,.07),
+    0 18px 42px rgba(0,0,0,.72);
+}
+
+h1 span {
+  position: relative;
+  display: inline-block;
+}
+
+h1 span::before {
+  content: "YOU";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,.22);
+  transform: translate(10px, 8px) scaleY(1.02);
+  opacity: .85;
+}
+
+h1 span::after {
+  content: "YOU";
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,.11);
+  transform: translate(-8px, -6px) scaleY(.98);
+  opacity: .75;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 18px;
+  bottom: -22px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,.85), transparent);
+  opacity: .55;
 }
 
 .platforms {
@@ -393,7 +447,7 @@ h1 {
 
   h1 {
     font-size: clamp(6rem, 32vw, 10rem);
-    margin-bottom: 30px;
+    margin-bottom: 34px;
   }
 
   .panel-readout {
