@@ -2,20 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#050505" />
   <meta name="description" content="YOU — single by ZYBR. Listen on YouTube, Spotify, and Apple Music." />
 
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
   <meta property="og:title" content="YOU — ZYBR" />
   <meta property="og:description" content="Single transmission online." />
-  <meta property="og:image" content="IMG_1269.JPG?v=30" />
+  <meta property="og:image" content="IMG_1269.JPG?v=40" />
 
   <title>YOU // ZYBR</title>
-  <link rel="stylesheet" href="styles.css?v=30" />
+  <link rel="stylesheet" href="styles.css?v=40" />
 </head>
 
 <body>
   <div class="noise" aria-hidden="true"></div>
+  <div class="site-cursor" aria-hidden="true"></div>
 
   <main class="site-shell">
     <header class="topbar">
@@ -56,12 +60,12 @@
       <div class="cover-panel" aria-label="Single cover reveal panel">
         <div class="panel-readout">
           <span>CURSOR REPAIR FIELD</span>
-          <span>MOVE_TO_DECODE</span>
+          <span class="decode-label">MOVE_TO_DECODE</span>
         </div>
 
         <div class="cover-reveal" id="coverReveal">
-          <img class="cover base" src="IMG_1269.JPG?v=30" alt="YOU single cover pixelated" draggable="false" />
-          <img class="cover clear" src="IMG_1269.JPG?v=30" alt="YOU single cover clear reveal" draggable="false" />
+          <img class="cover base" src="IMG_1269.JPG?v=40" alt="YOU single cover corrupted" draggable="false" />
+          <img class="cover clear" src="IMG_1269.JPG?v=40" alt="YOU single cover decoded" draggable="false" />
           <div class="target-ring" aria-hidden="true"></div>
         </div>
       </div>
@@ -90,6 +94,6 @@
     </section>
   </main>
 
-  <script src="script.js?v=30"></script>
+  <script src="script.js?v=40"></script>
 </body>
 </html>
