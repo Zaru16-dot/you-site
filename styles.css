@@ -138,6 +138,7 @@ body::before {
   position: relative;
   border-left: 2px solid var(--line-strong);
   padding: 18px 0 18px 24px;
+  transform: translateY(-24px);
 }
 
 .eyebrow,
@@ -150,11 +151,11 @@ body::before {
 .eyebrow {
   position: relative;
   z-index: 5;
-  margin: 0 0 34px;
+  margin: 0 0 18px;
   color: var(--soft);
   font-size: .72rem;
   letter-spacing: .18em;
-  transform: translateY(-38px);
+  transform: translateY(-28px);
   opacity: .82;
 }
 
@@ -162,7 +163,7 @@ body::before {
 h1 {
   position: relative;
   z-index: 2;
-  margin: -24px 0 42px;
+  margin: -34px 0 28px;
   font-family: Impact, "Teko", "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
   font-size: clamp(7rem, 16vw, 15rem);
   line-height: .74;
@@ -194,21 +195,16 @@ h1 span::before {
   opacity: .72;
 }
 
+/* Removed the underline so it does not enter the YouTube button */
 h1 span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 7%;
-  bottom: -20px;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(255,255,255,.85), transparent);
-  opacity: .5;
+  content: none;
 }
 
 .platforms {
   display: grid;
   gap: 10px;
   max-width: 430px;
+  margin-top: 8px;
 }
 
 .platforms a {
@@ -300,12 +296,46 @@ h1 span::after {
 
 .cover.base {
   image-rendering: pixelated;
-  transform: scale(1.04);
-  filter: blur(8px) contrast(1.45) saturate(.55) brightness(.58);
+  transform: scale(1.08);
+  filter: blur(2px) contrast(1.85) saturate(.5) brightness(.5);
+}
+
+/* Corrupted pixel/grid layer */
+.cover-reveal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: .42;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.08) 0 1px,
+      transparent 1px 8px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.045) 0 1px,
+      transparent 1px 10px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.11) 0 6%,
+      transparent 6% 18%,
+      rgba(0,0,0,.28) 18% 26%,
+      transparent 26% 100%
+    );
+  mix-blend-mode: overlay;
+}
+
+/* Extra horizontal glitch scratches */
+.cover-reveal .base::after {
+  content: "";
 }
 
 .cover.clear {
-  z-index: 2;
+  z-index: 4;
   filter: contrast(1.08) saturate(1.12);
   -webkit-mask-image: radial-gradient(
     circle at var(--mx) var(--my),
@@ -325,14 +355,29 @@ h1 span::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 5;
   pointer-events: none;
   border: 1px solid rgba(255,255,255,.08);
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(255,255,255,.08) 12%,
+      transparent 13%,
+      transparent 31%,
+      rgba(255,255,255,.06) 32%,
+      transparent 33%,
+      transparent 58%,
+      rgba(255,255,255,.05) 59%,
+      transparent 60%
+    );
+  mix-blend-mode: screen;
+  opacity: .45;
 }
 
 .target-ring {
   position: absolute;
-  z-index: 4;
+  z-index: 6;
   left: var(--mx);
   top: var(--my);
   width: 170px;
@@ -410,6 +455,7 @@ h1 span::after {
 
   .hero-copy {
     order: 2;
+    transform: translateY(0);
   }
 
   .data-grid {
@@ -447,13 +493,13 @@ h1 span::after {
   }
 
   .eyebrow {
-    transform: translateY(-24px);
-    margin-bottom: 22px;
+    transform: translateY(-18px);
+    margin-bottom: 16px;
   }
 
   h1 {
     font-size: clamp(7rem, 34vw, 11rem);
-    margin: -10px 0 36px;
+    margin: -12px 0 30px;
   }
 
   .panel-readout {
