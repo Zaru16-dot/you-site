@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#050505" />
   <meta name="description" content="YOU — single by ZYBR. Listen on YouTube, Spotify, and Apple Music." />
+
   <meta property="og:title" content="YOU — ZYBR" />
-  <meta property="og:description" content="Single transmission online. Choose your platform." />
-  <meta property="og:image" content="./assets/you-cover.jpeg" />
+  <meta property="og:description" content="Single transmission online." />
+  <meta property="og:image" content="assets/you-cover.jpeg?v=3" />
+
   <title>YOU // ZYBR</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -20,7 +22,7 @@
       <a class="brand-mark" href="#main">ZYBR</a>
 
       <div class="status-strip">
-        <span class="status-dot"></span>
+        <span class="status-dot" aria-hidden="true"></span>
         <span>TRANSMISSION ACTIVE</span>
         <span class="hide-mobile">SINGLE_001</span>
       </div>
@@ -32,7 +34,9 @@
       <div class="hero-copy">
         <p class="eyebrow">ZVLBLV ARCHIVE / AUDIO FILE</p>
 
-        <h1>YOU</h1>
+        <h1 aria-label="YOU">
+          <span>YOU</span>
+        </h1>
 
         <nav class="platforms" aria-label="Listen links">
           <a href="https://youtu.be/hln8AhUAArM?si=8MDBMu_cFVsUElmO" target="_blank" rel="noreferrer">
@@ -56,8 +60,8 @@
         </div>
 
         <div class="cover-reveal" id="coverReveal">
-          <img class="cover base" src="./assets/you-cover.jpeg" alt="YOU single cover, pixelated" draggable="false" />
-          <img class="cover clear" src="./assets/you-cover.jpeg" alt="YOU single cover clear reveal" draggable="false" />
+          <img class="cover base" src="assets/you-cover.jpeg?v=3" alt="YOU single cover pixelated" draggable="false" />
+          <img class="cover clear" src="assets/you-cover.jpeg?v=3" alt="YOU single cover clear reveal" draggable="false" />
           <div class="target-ring" aria-hidden="true"></div>
         </div>
       </div>
