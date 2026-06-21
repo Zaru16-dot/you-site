@@ -1,6 +1,7 @@
 const root = document.documentElement;
 const coverReveal = document.getElementById("coverReveal");
 const ring = coverReveal.querySelector(".target-ring");
+const siteCursor = document.querySelector(".site-cursor");
 
 function setCoverPosition(clientX, clientY) {
   const rect = coverReveal.getBoundingClientRect();
@@ -19,9 +20,32 @@ function centerReveal() {
   coverReveal.style.setProperty("--my", `${rect.height / 2}px`);
 }
 
+function updateMobileDecode() {
+  const rect = coverReveal.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+
+  const start = viewportHeight * 0.95;
+  const end = viewportHeight * 0.28;
+
+  const progress = (start - rect.top) / (start - end);
+  const clamped = Math.max(0, Math.min(progress, 1));
+
+  root.style.setProperty("--scrollDecode", clamped.toFixed(3));
+}
+
 window.addEventListener("pointermove", (event) => {
   root.style.setProperty("--page-x", `${event.clientX}px`);
   root.style.setProperty("--page-y", `${event.clientY}px`);
+
+  if (siteCursor) {
+    siteCursor.style.opacity = "0.72";
+  }
+});
+
+window.addEventListener("pointerleave", () => {
+  if (siteCursor) {
+    siteCursor.style.opacity = "0";
+  }
 });
 
 coverReveal.addEventListener("pointermove", (event) => {
@@ -37,18 +61,11 @@ coverReveal.addEventListener("pointerleave", () => {
   ring.style.opacity = "0.45";
 });
 
-coverReveal.addEventListener(
-  "touchmove",
-  (event) => {
-    const touch = event.touches[0];
-
-    if (touch) {
-      setCoverPosition(touch.clientX, touch.clientY);
-    }
-  },
-  { passive: true }
-);
-
-window.addEventListener("resize", centerReveal);
+window.addEventListener("scroll", updateMobileDecode, { passive: true });
+window.addEventListener("resize", () => {
+  centerReveal();
+  updateMobileDecode();
+});
 
 centerReveal();
+updateMobileDecode();
