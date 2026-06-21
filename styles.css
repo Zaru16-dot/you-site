@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
+
 :root {
   --bg: #050505;
   --fg: #f4f4f0;
@@ -151,20 +153,22 @@ body::before {
   letter-spacing: .18em;
 }
 
+/* MARATHON-INSPIRED YOU TEXT */
 h1 {
   position: relative;
   margin: 0 0 42px;
-  font-size: clamp(6.4rem, 17vw, 15.5rem);
-  line-height: .7;
-  letter-spacing: -.105em;
+  font-family: "Teko", "Arial Narrow", Impact, sans-serif;
+  font-size: clamp(8rem, 18vw, 16.5rem);
+  line-height: .62;
+  letter-spacing: -.045em;
   text-transform: uppercase;
-  transform: scaleY(1.3) skewX(-4deg);
-  font-weight: 950;
+  font-weight: 700;
   color: var(--fg);
+  transform: scaleY(1.2);
   text-shadow:
-    5px 0 0 rgba(255,255,255,.13),
-    -4px 0 0 rgba(255,255,255,.07),
-    0 18px 42px rgba(0,0,0,.72);
+    3px 0 0 rgba(255,255,255,.18),
+    8px 0 0 rgba(255,255,255,.07),
+    0 20px 45px rgba(0,0,0,.8);
 }
 
 h1 span {
@@ -178,26 +182,16 @@ h1 span::before {
   inset: 0;
   z-index: -1;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,.22);
-  transform: translate(10px, 8px) scaleY(1.02);
-  opacity: .85;
+  -webkit-text-stroke: 1px rgba(255,255,255,.2);
+  transform: translate(7px, 5px);
+  opacity: .8;
 }
 
 h1 span::after {
-  content: "YOU";
-  position: absolute;
-  inset: 0;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,.11);
-  transform: translate(-8px, -6px) scaleY(.98);
-  opacity: .75;
-}
-
-h1::after {
   content: "";
   position: absolute;
-  left: 4px;
-  right: 18px;
+  left: 2%;
+  right: 7%;
   bottom: -22px;
   height: 2px;
   background: linear-gradient(90deg, rgba(255,255,255,.85), transparent);
@@ -446,8 +440,8 @@ h1::after {
   }
 
   h1 {
-    font-size: clamp(6rem, 32vw, 10rem);
-    margin-bottom: 34px;
+    font-size: clamp(7rem, 34vw, 11rem);
+    margin-bottom: 36px;
   }
 
   .panel-readout {
