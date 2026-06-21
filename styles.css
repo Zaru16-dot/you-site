@@ -193,24 +193,27 @@ button,
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* This is now ABOVE the word YOU instead of floating over it */
 .eyebrow {
   position: relative;
-  z-index: 8;
+  z-index: 20;
   display: block;
-  margin: 0 0 18px;
-  color: rgba(244,244,240,.58);
+  width: fit-content;
+  margin: 0 0 32px;
+  padding: 0 8px 0 0;
+  color: rgba(244,244,240,.7);
+  background: rgba(5,5,5,.78);
   font-size: .72rem;
   letter-spacing: .18em;
+  line-height: 1.2;
   transform: none;
-  opacity: .9;
+  opacity: .95;
   pointer-events: none;
 }
 
 h1 {
   position: relative;
   z-index: 2;
-  margin: 0 0 86px;
+  margin: 0 0 98px;
   font-family: Impact, "Teko", "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
   font-size: clamp(7rem, 16vw, 15rem);
   line-height: .68;
@@ -220,6 +223,7 @@ h1 {
   color: var(--fg);
   transform: scaleX(.72) scaleY(1.38);
   transform-origin: left center;
+  pointer-events: none;
   text-shadow:
     5px 5px 0 rgba(255,255,255,.08),
     9px 9px 0 rgba(255,255,255,.045),
@@ -229,6 +233,7 @@ h1 {
 h1 span {
   position: relative;
   display: inline-block;
+  pointer-events: none;
 }
 
 h1 span::before {
@@ -240,14 +245,16 @@ h1 span::before {
   -webkit-text-stroke: 1px rgba(255,255,255,.16);
   transform: translate(8px, 6px);
   opacity: .72;
+  pointer-events: none;
 }
 
 h1 span::after {
   content: none;
 }
 
-/* Extra space so the YOU shadow does not hit the YouTube button */
 .platforms {
+  position: relative;
+  z-index: 30;
   display: grid;
   gap: 10px;
   max-width: 430px;
@@ -255,6 +262,8 @@ h1 span::after {
 }
 
 .platforms a {
+  position: relative;
+  z-index: 31;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -265,8 +274,9 @@ h1 span::after {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: .12em;
-  background: rgba(255,255,255,.025);
+  background: rgba(5,5,5,.32);
   transition: transform .18s ease, border-color .18s ease, background .18s ease;
+  pointer-events: auto;
 }
 
 .platforms a:hover,
@@ -550,15 +560,15 @@ h1 span::after {
   }
 
   .eyebrow {
-    margin: 0 0 16px;
+    margin: 0 0 32px;
     font-size: .68rem;
     letter-spacing: .16em;
-    transform: none;
+    background: rgba(5,5,5,.84);
   }
 
   h1 {
     font-size: clamp(8.2rem, 38vw, 14rem);
-    margin: 0 0 92px;
+    margin: 0 0 116px;
   }
 
   .platforms {
@@ -634,14 +644,17 @@ h1 span::after {
   }
 
   .eyebrow {
-    margin: 0 0 18px;
+    width: max-content;
+    max-width: calc(100vw - 60px);
+    margin: 0 0 34px;
     font-size: .62rem;
     letter-spacing: .15em;
+    background: rgba(5,5,5,.86);
   }
 
   h1 {
     font-size: clamp(8rem, 44vw, 12rem);
-    margin: 0 0 100px;
+    margin: 0 0 124px;
   }
 
   .platforms {
